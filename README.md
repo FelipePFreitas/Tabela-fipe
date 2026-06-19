@@ -1,7 +1,5 @@
 # 🚗 Consulta Tabela FIPE - API Client
 
-![Java](https://shields.io)
-![Apache Maven](https://shields.io)
 
 Aplicação interativa via console desenvolvida em Java para consulta de preços médios de veículos no mercado brasileiro, consumindo dados em tempo real da API da Tabela FIPE. O fluxo guia o usuário desde a seleção da marca até o detalhamento de preços por ano-modelo.
 
