@@ -1,0 +1,21 @@
+shared_modules:
+  - source_loc: TabelaFipe/src/main/java/br/com/alura/models/Marcas.java:6
+    kind: transport_model
+    used_by_units: [consulta-veiculos]
+    fields:
+      - name: codigo
+        type: String
+      - name: marca
+        type: String
+    split_candidate: false
+  - source_loc: TabelaFipe/src/main/java/br/com/alura/models/Valor.java:12
+    kind: transport_model
+    used_by_units: [consulta-veiculos]
+    fields:
+      - name: modelo
+        type: String
+      - name: combustivel
+        type: String
+      - name: siglaCombustivel
+        type: String
+    split_candidate: false

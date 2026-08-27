@@ -1,0 +1,15 @@
+contracts:
+  - source_loc: TabelaFipe/src/main/java/br/com/alura/service/CarrosService.java:19
+    protocol: http
+    stability: frozen
+    target_contract:
+      method: GET
+      paths:
+        - /api/fipe/carros/marcas
+        - /api/fipe/carros/marcas/{codigoMarca}/modelos
+        - /api/fipe/carros/marcas/{codigoMarca}/modelos/{codigoModelo}/anos
+        - /api/fipe/carros/marcas/{codigoMarca}/modelos/{codigoModelo}/anos/{codigoAno}
+      response: "JSON representation of the corresponding FIPE model or list"
+    semantic_divergence:
+      - "Interactive prompts become path parameters."
+      - "Console error messages become HTTP client errors from the external integration."

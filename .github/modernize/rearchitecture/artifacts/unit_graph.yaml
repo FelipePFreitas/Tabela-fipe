@@ -1,0 +1,17 @@
+units:
+  - name: consulta-veiculos
+    source_anchors:
+      - TabelaFipe/src/main/java/br/com/alura/Main.java:8
+      - TabelaFipe/src/main/java/br/com/alura/service/CarrosService.java:13
+      - TabelaFipe/src/main/java/br/com/alura/util/ConsumoAPI.java:9
+    exported_signature:
+      entrypoint: "Interactive vehicle consultation; target HTTP resources under /api/fipe/carros"
+      inputs: "brand code, model code, and year code"
+      outputs: "brands, models, years, or FIPE vehicle value"
+    depends_on: []
+    dynamic_entrypoints: []
+    shared_refs:
+      - TabelaFipe/src/main/java/br/com/alura/models/Marcas.java
+      - TabelaFipe/src/main/java/br/com/alura/models/Modelos.java
+      - TabelaFipe/src/main/java/br/com/alura/models/Anos.java
+      - TabelaFipe/src/main/java/br/com/alura/models/Valor.java

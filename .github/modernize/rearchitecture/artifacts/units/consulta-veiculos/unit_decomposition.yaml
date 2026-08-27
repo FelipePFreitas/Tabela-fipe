@@ -1,0 +1,6 @@
+unit: consulta-veiculos
+commit: false
+candidate_splits:
+  - candidate: "Separate read resources by brands, models, years, and value"
+    drivers: [external_contract, resource_boundary]
+    rationale: "Each lookup has an independent HTTP resource and response shape."

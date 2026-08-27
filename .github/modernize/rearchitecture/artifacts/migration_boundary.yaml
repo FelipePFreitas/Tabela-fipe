@@ -1,0 +1,23 @@
+user_intent:
+  interpretation: "Apply Spring Boot to the existing FIPE vehicle lookup system"
+  cleanup_required: true
+  acceptance_criteria:
+    - "Application starts as a Spring Boot web application"
+    - "Vehicle lookup flow is available through HTTP"
+    - "FIPE base URL is externalized"
+strategy: full_rewrite
+full_rewrite_reason: "The only runtime entry point is the CLI and it must be replaced by a web runtime."
+must_rewrite:
+  - TabelaFipe/src/main/java/br/com/alura/Main.java:8
+  - TabelaFipe/src/main/java/br/com/alura/service/CarrosService.java:13
+  - TabelaFipe/src/main/java/br/com/alura/util/ConsumoAPI.java:9
+  - TabelaFipe/pom.xml:1
+copy_as_is:
+  - TabelaFipe/src/main/java/br/com/alura/models/Marcas.java
+  - TabelaFipe/src/main/java/br/com/alura/models/Modelos.java
+  - TabelaFipe/src/main/java/br/com/alura/models/Anos.java
+legacy_allowed_to_remain:
+  - TabelaFipe/src/main/java/br/com/alura/interfaces/IConverterDados.java
+  - TabelaFipe/src/main/java/br/com/alura/util/ConverterDados.java
+defer_cleanup:
+  - "Remove unused converter abstraction after consumers outside this migration boundary are confirmed absent."

@@ -1,0 +1,11 @@
+seams:
+  - source: inferred
+    name: cli-to-http
+    frozen_side: FIPE external HTTP API
+    frozen_side_rule: "Do not alter FIPE paths or response field meanings; adapt only at the application boundary."
+    protocol_shift: "interactive console input/output to HTTP request/JSON response"
+    bridge_points:
+      - mapping_rule: "Map brand, model, and year console inputs to validated path variables in the corresponding REST resource."
+        edge_cases: "Propagate non-success FIPE responses as explicit application errors; do not return an empty success response."
+        idempotency_retry: "GET operations remain idempotent; no automatic retry is introduced."
+        fallback: "Return an error response when FIPE is unavailable."

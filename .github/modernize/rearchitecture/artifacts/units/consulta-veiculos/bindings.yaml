@@ -1,0 +1,13 @@
+unit: consulta-veiculos
+bindings:
+  - source_loc: TabelaFipe/src/main/java/br/com/alura/Main.java:9
+    binding: "JVM main method starts the application"
+    must_appear_in_target: "Spring Boot @SpringBootApplication main class"
+  - source_loc: TabelaFipe/src/main/java/br/com/alura/service/CarrosService.java:13
+    binding: "Service orchestrates the FIPE flow"
+    must_appear_in_target: "Spring @Service injected into a REST controller"
+runtime_config:
+  - source_loc: TabelaFipe/src/main/java/br/com/alura/service/CarrosService.java:17
+    key: fipe.api.base-url
+    must_appear_in_target: true
+    default: "https://parallelum.com.br/fipe/api/v1"

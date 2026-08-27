@@ -1,0 +1,27 @@
+unit: consulta-veiculos
+side_effects:
+  - source_loc: TabelaFipe/src/main/java/br/com/alura/service/CarrosService.java:21
+    action: "Calls the FIPE HTTP API synchronously."
+    must_preserve: true
+branches:
+  - source_loc: TabelaFipe/src/main/java/br/com/alura/service/CarrosService.java:29
+    condition: "brand code exists in the returned brand list"
+    outcome: "continue to models lookup"
+    must_preserve: true
+  - source_loc: TabelaFipe/src/main/java/br/com/alura/service/CarrosService.java:42
+    condition: "model code exists in the returned model list"
+    outcome: "continue to years and value lookup"
+    must_preserve: true
+error_paths:
+  - source_loc: TabelaFipe/src/main/java/br/com/alura/service/CarrosService.java:69
+    contract: "unknown model is reported to the caller"
+    must_preserve: true
+  - source_loc: TabelaFipe/src/main/java/br/com/alura/service/CarrosService.java:72
+    contract: "unknown brand is reported to the caller"
+    must_preserve: true
+  - source_loc: TabelaFipe/src/main/java/br/com/alura/util/ConsumoAPI.java:21
+    contract: "upstream I/O failure is surfaced, not swallowed"
+    must_preserve: true
+concurrency:
+  model: synchronous request/response
+  tx_boundary: none
