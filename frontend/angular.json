@@ -23,10 +23,14 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "buildTarget": "tabela-fipe-frontend:build"
+            "buildTarget": "tabela-fipe-frontend:build",
+            "proxyConfig": "proxy.conf.json"
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "a4d40865-bd12-4bf7-a826-2a8628027f7a"
   }
 }
