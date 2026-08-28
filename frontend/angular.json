@@ -26,6 +26,9 @@
             "buildTarget": "tabela-fipe-frontend:build",
             "proxyConfig": "proxy.conf.json"
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
